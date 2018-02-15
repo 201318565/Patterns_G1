@@ -7,26 +7,40 @@ import composite_pattern.Paquete_Composite;
 import decorator_pattern.extras.*;
 import decorator_pattern.ticket_class.*;
 import java.util.Scanner;
+import state_pattern.*;
 
 public class run {
 
     static Paquete_Composite paquete = new Paquete_Composite();
     static Hoja_Almuerzo almuerzo = new Hoja_Almuerzo();
     static Hoja_Cena cena = new Hoja_Cena();
-    
+    static Context context = new Context(); // CONTEXTO DE LA VENTANILLA
+
     public static void main(String[] args) {
+        StartState startState = new StartState();
+        startState.doAction(context);
         System.out.println("Bienvenido a la estación de transportes");
         Scanner scanner = new Scanner(System.in);
         while (true) {
             System.out.println("================== MENU=================");
-            System.out.println("(1) - Comprar Tiket");
-            System.out.println("(2) - Salir");
+            System.out.println("(1) - Compra de Tiket");
+            System.out.println("(2) - Estado de la Ventanilla");
+            System.out.println("(3) - Salir");
             System.out.print("Ingrese su elección:\t");
             int selection = scanner.nextInt();
             if (selection == 1) {
-                paquete = new Paquete_Composite();
-                menuTickets();
+                 if("Trabajando".equals(context.getState().toString())){
+                    paquete = new Paquete_Composite();
+                    menuTickets();
+                 } else if ("Cerrada".equals(context.getState().toString())){
+                      System.out.print("Lo sentimos la ventanilla ya fue cerrada\n\n");
+                 } else if ("Suspendida".equals(context.getState().toString())){
+                     System.out.print("Vuelva en 5 min la ventanilla no esta atendiendo en este momento \n\n");
+                 }
+                
             } else if (selection == 2) {
+                menuVentanilla();
+            } else if (selection == 3) {
                 break;
             }
 
@@ -68,7 +82,7 @@ public class run {
                                 System.out.println("(2) - Cena");
                                 System.out.println("(3) - Sin comida");
                                 selection = scanner.nextInt();
-                                switch(selection){
+                                switch (selection) {
                                     case 1:
                                         paquete.add(new Hoja_Ticket(newTiket));
                                         paquete.add(almuerzo);
@@ -91,7 +105,7 @@ public class run {
                                 System.out.println("(2) - Cena");
                                 System.out.println("(3) - Sin comida");
                                 selection = scanner.nextInt();
-                                switch(selection){
+                                switch (selection) {
                                     case 1:
                                         paquete.add(new Hoja_Ticket(newTiket));
                                         paquete.add(almuerzo);
@@ -123,7 +137,7 @@ public class run {
                                 System.out.println("(2) - Cena");
                                 System.out.println("(3) - Sin comida");
                                 selection = scanner.nextInt();
-                                switch(selection){
+                                switch (selection) {
                                     case 1:
                                         paquete.add(new Hoja_Ticket(newTiket));
                                         paquete.add(almuerzo);
@@ -146,7 +160,7 @@ public class run {
                                 System.out.println("(2) - Cena");
                                 System.out.println("(3) - Sin comida");
                                 selection = scanner.nextInt();
-                                switch(selection){
+                                switch (selection) {
                                     case 1:
                                         paquete.add(new Hoja_Ticket(newTiket));
                                         paquete.add(almuerzo);
@@ -178,7 +192,7 @@ public class run {
                                 System.out.println("(2) - Cena");
                                 System.out.println("(3) - Sin comida");
                                 selection = scanner.nextInt();
-                                switch(selection){
+                                switch (selection) {
                                     case 1:
                                         paquete.add(new Hoja_Ticket(newTiket));
                                         paquete.add(almuerzo);
@@ -201,7 +215,7 @@ public class run {
                                 System.out.println("(2) - Cena");
                                 System.out.println("(3) - Sin comida");
                                 selection = scanner.nextInt();
-                                switch(selection){
+                                switch (selection) {
                                     case 1:
                                         paquete.add(new Hoja_Ticket(newTiket));
                                         paquete.add(almuerzo);
@@ -245,7 +259,7 @@ public class run {
                                 System.out.println("(2) - Cena");
                                 System.out.println("(3) - Sin comida");
                                 selection = scanner.nextInt();
-                                switch(selection){
+                                switch (selection) {
                                     case 1:
                                         paquete.add(new Hoja_Ticket(newTiket2));
                                         paquete.add(almuerzo);
@@ -268,7 +282,7 @@ public class run {
                                 System.out.println("(2) - Cena");
                                 System.out.println("(3) - Sin comida");
                                 selection = scanner.nextInt();
-                                switch(selection){
+                                switch (selection) {
                                     case 1:
                                         paquete.add(new Hoja_Ticket(newTiket2));
                                         paquete.add(almuerzo);
@@ -285,7 +299,7 @@ public class run {
                                 System.out.println("Total : " + Double.toString(paquete.precio()));
                                 System.out.println("=====================");
                         }
-                        
+
                         break;
                     case 2:
                         newTiket2 = new km_200(newTiket2);
@@ -301,7 +315,7 @@ public class run {
                                 System.out.println("(2) - Cena");
                                 System.out.println("(3) - Sin comida");
                                 selection = scanner.nextInt();
-                                switch(selection){
+                                switch (selection) {
                                     case 1:
                                         paquete.add(new Hoja_Ticket(newTiket2));
                                         paquete.add(almuerzo);
@@ -324,7 +338,7 @@ public class run {
                                 System.out.println("(2) - Cena");
                                 System.out.println("(3) - Sin comida");
                                 selection = scanner.nextInt();
-                                switch(selection){
+                                switch (selection) {
                                     case 1:
                                         paquete.add(new Hoja_Ticket(newTiket2));
                                         paquete.add(almuerzo);
@@ -356,7 +370,7 @@ public class run {
                                 System.out.println("(2) - Cena");
                                 System.out.println("(3) - Sin comida");
                                 selection = scanner.nextInt();
-                                switch(selection){
+                                switch (selection) {
                                     case 1:
                                         paquete.add(new Hoja_Ticket(newTiket2));
                                         paquete.add(almuerzo);
@@ -379,7 +393,7 @@ public class run {
                                 System.out.println("(2) - Cena");
                                 System.out.println("(3) - Sin comida");
                                 selection = scanner.nextInt();
-                                switch(selection){
+                                switch (selection) {
                                     case 1:
                                         paquete.add(new Hoja_Ticket(newTiket2));
                                         paquete.add(almuerzo);
@@ -422,7 +436,7 @@ public class run {
                                 System.out.println("(2) - Cena");
                                 System.out.println("(3) - Sin comida");
                                 selection = scanner.nextInt();
-                                switch(selection){
+                                switch (selection) {
                                     case 1:
                                         paquete.add(new Hoja_Ticket(newTiket3));
                                         paquete.add(almuerzo);
@@ -445,7 +459,7 @@ public class run {
                                 System.out.println("(2) - Cena");
                                 System.out.println("(3) - Sin comida");
                                 selection = scanner.nextInt();
-                                switch(selection){
+                                switch (selection) {
                                     case 1:
                                         paquete.add(new Hoja_Ticket(newTiket3));
                                         paquete.add(almuerzo);
@@ -477,7 +491,7 @@ public class run {
                                 System.out.println("(2) - Cena");
                                 System.out.println("(3) - Sin comida");
                                 selection = scanner.nextInt();
-                                switch(selection){
+                                switch (selection) {
                                     case 1:
                                         paquete.add(new Hoja_Ticket(newTiket3));
                                         paquete.add(almuerzo);
@@ -500,7 +514,7 @@ public class run {
                                 System.out.println("(2) - Cena");
                                 System.out.println("(3) - Sin comida");
                                 selection = scanner.nextInt();
-                                switch(selection){
+                                switch (selection) {
                                     case 1:
                                         paquete.add(new Hoja_Ticket(newTiket3));
                                         paquete.add(almuerzo);
@@ -532,7 +546,7 @@ public class run {
                                 System.out.println("(2) - Cena");
                                 System.out.println("(3) - Sin comida");
                                 selection = scanner.nextInt();
-                                switch(selection){
+                                switch (selection) {
                                     case 1:
                                         paquete.add(new Hoja_Ticket(newTiket3));
                                         paquete.add(almuerzo);
@@ -555,7 +569,7 @@ public class run {
                                 System.out.println("(2) - Cena");
                                 System.out.println("(3) - Sin comida");
                                 selection = scanner.nextInt();
-                                switch(selection){
+                                switch (selection) {
                                     case 1:
                                         paquete.add(new Hoja_Ticket(newTiket3));
                                         paquete.add(almuerzo);
@@ -598,7 +612,7 @@ public class run {
                                 System.out.println("(2) - Cena");
                                 System.out.println("(3) - Sin comida");
                                 selection = scanner.nextInt();
-                                switch(selection){
+                                switch (selection) {
                                     case 1:
                                         paquete.add(new Hoja_Ticket(newTiket4));
                                         paquete.add(almuerzo);
@@ -621,7 +635,7 @@ public class run {
                                 System.out.println("(2) - Cena");
                                 System.out.println("(3) - Sin comida");
                                 selection = scanner.nextInt();
-                                switch(selection){
+                                switch (selection) {
                                     case 1:
                                         paquete.add(new Hoja_Ticket(newTiket4));
                                         paquete.add(almuerzo);
@@ -653,7 +667,7 @@ public class run {
                                 System.out.println("(2) - Cena");
                                 System.out.println("(3) - Sin comida");
                                 selection = scanner.nextInt();
-                                switch(selection){
+                                switch (selection) {
                                     case 1:
                                         paquete.add(new Hoja_Ticket(newTiket4));
                                         paquete.add(almuerzo);
@@ -676,7 +690,7 @@ public class run {
                                 System.out.println("(2) - Cena");
                                 System.out.println("(3) - Sin comida");
                                 selection = scanner.nextInt();
-                                switch(selection){
+                                switch (selection) {
                                     case 1:
                                         paquete.add(new Hoja_Ticket(newTiket4));
                                         paquete.add(almuerzo);
@@ -708,7 +722,7 @@ public class run {
                                 System.out.println("(2) - Cena");
                                 System.out.println("(3) - Sin comida");
                                 selection = scanner.nextInt();
-                                switch(selection){
+                                switch (selection) {
                                     case 1:
                                         paquete.add(new Hoja_Ticket(newTiket4));
                                         paquete.add(almuerzo);
@@ -731,7 +745,7 @@ public class run {
                                 System.out.println("(2) - Cena");
                                 System.out.println("(3) - Sin comida");
                                 selection = scanner.nextInt();
-                                switch(selection){
+                                switch (selection) {
                                     case 1:
                                         paquete.add(new Hoja_Ticket(newTiket4));
                                         paquete.add(almuerzo);
@@ -753,6 +767,35 @@ public class run {
                 }
                 break;
             default:
+        }
+
+    }
+
+    public static void menuVentanilla() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Estado de la ventanilla");
+        System.out.println("(1) - Ventanilla abierta");
+        System.out.println("(2) - Ventanilla cerrada");
+        System.out.println("(3) - Ventanilla suspendida");
+        System.out.println("(4) - Regresar");
+        System.out.print("Ingrese su elección:\t");
+        int selection = scanner.nextInt();
+        switch (selection) {
+            case 1:
+                StartState startState = new StartState();
+                startState.doAction(context);
+                break;
+            case 2:
+                StopState stopState = new StopState();
+                stopState.doAction(context);
+                break;
+
+            case 3:
+                SuspendState supendState = new SuspendState();
+                supendState.doAction(context);
+                break;
+            default:
+
         }
 
     }
