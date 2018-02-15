@@ -1,11 +1,19 @@
 package patterns_g1;
 
+import composite_pattern.Hoja_Almuerzo;
+import composite_pattern.Hoja_Cena;
+import composite_pattern.Hoja_Ticket;
+import composite_pattern.Paquete_Composite;
 import decorator_pattern.extras.*;
 import decorator_pattern.ticket_class.*;
 import java.util.Scanner;
 
 public class run {
 
+    static Paquete_Composite paquete = new Paquete_Composite();
+    static Hoja_Almuerzo almuerzo = new Hoja_Almuerzo();
+    static Hoja_Cena cena = new Hoja_Cena();
+    
     public static void main(String[] args) {
         System.out.println("Bienvenido a la estación de transportes");
         Scanner scanner = new Scanner(System.in);
@@ -16,6 +24,7 @@ public class run {
             System.out.print("Ingrese su elección:\t");
             int selection = scanner.nextInt();
             if (selection == 1) {
+                paquete = new Paquete_Composite();
                 menuTickets();
             } else if (selection == 2) {
                 break;
@@ -54,15 +63,49 @@ public class run {
                         switch (selection) {
                             case 1:
                                 newTiket = new Membership(newTiket);
+                                System.out.println("A continuación se le presentas las opciones de comida");
+                                System.out.println("(1) - Almuerzo");
+                                System.out.println("(2) - Cena");
+                                System.out.println("(3) - Sin comida");
+                                selection = scanner.nextInt();
+                                switch(selection){
+                                    case 1:
+                                        paquete.add(new Hoja_Ticket(newTiket));
+                                        paquete.add(almuerzo);
+                                        break;
+                                    case 2:
+                                        paquete.add(new Hoja_Ticket(newTiket));
+                                        paquete.add(cena);
+                                        break;
+                                    default:
+                                        paquete.add(new Hoja_Ticket(newTiket));
+                                }
                                 System.out.println("=====================");
-                                System.out.println("Su compra : " + newTiket.getDescription());
-                                System.out.println("Total : " + Double.toString(newTiket.cost()));
+                                System.out.println("Su compra : " + paquete.descripcion());
+                                System.out.println("Total : " + Double.toString(paquete.precio()));
                                 System.out.println("=====================");
                                 break;
                             default:
+                                System.out.println("A continuación se le presentas las opciones de comida");
+                                System.out.println("(1) - Almuerzo");
+                                System.out.println("(2) - Cena");
+                                System.out.println("(3) - Sin comida");
+                                selection = scanner.nextInt();
+                                switch(selection){
+                                    case 1:
+                                        paquete.add(new Hoja_Ticket(newTiket));
+                                        paquete.add(almuerzo);
+                                        break;
+                                    case 2:
+                                        paquete.add(new Hoja_Ticket(newTiket));
+                                        paquete.add(cena);
+                                        break;
+                                    default:
+                                        paquete.add(new Hoja_Ticket(newTiket));
+                                }
                                 System.out.println("=====================");
-                                System.out.println("Su compra : " + newTiket.getDescription());
-                                System.out.println("Su compra : " + Double.toString(newTiket.cost()));
+                                System.out.println("Su compra : " + paquete.descripcion());
+                                System.out.println("Total : " + Double.toString(paquete.precio()));
                                 System.out.println("=====================");
                         }
                         break;
@@ -75,15 +118,49 @@ public class run {
                         switch (selection) {
                             case 1:
                                 newTiket = new Membership(newTiket);
+                                System.out.println("A continuación se le presentas las opciones de comida");
+                                System.out.println("(1) - Almuerzo");
+                                System.out.println("(2) - Cena");
+                                System.out.println("(3) - Sin comida");
+                                selection = scanner.nextInt();
+                                switch(selection){
+                                    case 1:
+                                        paquete.add(new Hoja_Ticket(newTiket));
+                                        paquete.add(almuerzo);
+                                        break;
+                                    case 2:
+                                        paquete.add(new Hoja_Ticket(newTiket));
+                                        paquete.add(cena);
+                                        break;
+                                    default:
+                                        paquete.add(new Hoja_Ticket(newTiket));
+                                }
                                 System.out.println("=====================");
-                                System.out.println("Su compra : " + newTiket.getDescription());
-                                System.out.println("Total : " + Double.toString(newTiket.cost()));
+                                System.out.println("Su compra : " + paquete.descripcion());
+                                System.out.println("Total : " + Double.toString(paquete.precio()));
                                 System.out.println("=====================");
                                 break;
                             default:
+                                System.out.println("A continuación se le presentas las opciones de comida");
+                                System.out.println("(1) - Almuerzo");
+                                System.out.println("(2) - Cena");
+                                System.out.println("(3) - Sin comida");
+                                selection = scanner.nextInt();
+                                switch(selection){
+                                    case 1:
+                                        paquete.add(new Hoja_Ticket(newTiket));
+                                        paquete.add(almuerzo);
+                                        break;
+                                    case 2:
+                                        paquete.add(new Hoja_Ticket(newTiket));
+                                        paquete.add(cena);
+                                        break;
+                                    default:
+                                        paquete.add(new Hoja_Ticket(newTiket));
+                                }
                                 System.out.println("=====================");
-                                System.out.println("Su compra : " + newTiket.getDescription());
-                                System.out.println("Su compra : " + Double.toString(newTiket.cost()));
+                                System.out.println("Su compra : " + paquete.descripcion());
+                                System.out.println("Total : " + Double.toString(paquete.precio()));
                                 System.out.println("=====================");
                         }
                         break;
@@ -96,15 +173,49 @@ public class run {
                         switch (selection) {
                             case 1:
                                 newTiket = new Membership(newTiket);
+                                System.out.println("A continuación se le presentas las opciones de comida");
+                                System.out.println("(1) - Almuerzo");
+                                System.out.println("(2) - Cena");
+                                System.out.println("(3) - Sin comida");
+                                selection = scanner.nextInt();
+                                switch(selection){
+                                    case 1:
+                                        paquete.add(new Hoja_Ticket(newTiket));
+                                        paquete.add(almuerzo);
+                                        break;
+                                    case 2:
+                                        paquete.add(new Hoja_Ticket(newTiket));
+                                        paquete.add(cena);
+                                        break;
+                                    default:
+                                        paquete.add(new Hoja_Ticket(newTiket));
+                                }
                                 System.out.println("=====================");
-                                System.out.println("Su compra : " + newTiket.getDescription());
-                                System.out.println("Total : " + Double.toString(newTiket.cost()));
+                                System.out.println("Su compra : " + paquete.descripcion());
+                                System.out.println("Total : " + Double.toString(paquete.precio()));
                                 System.out.println("=====================");
                                 break;
                             default:
+                                System.out.println("A continuación se le presentas las opciones de comida");
+                                System.out.println("(1) - Almuerzo");
+                                System.out.println("(2) - Cena");
+                                System.out.println("(3) - Sin comida");
+                                selection = scanner.nextInt();
+                                switch(selection){
+                                    case 1:
+                                        paquete.add(new Hoja_Ticket(newTiket));
+                                        paquete.add(almuerzo);
+                                        break;
+                                    case 2:
+                                        paquete.add(new Hoja_Ticket(newTiket));
+                                        paquete.add(cena);
+                                        break;
+                                    default:
+                                        paquete.add(new Hoja_Ticket(newTiket));
+                                }
                                 System.out.println("=====================");
-                                System.out.println("Su compra : " + newTiket.getDescription());
-                                System.out.println("Su compra : " + Double.toString(newTiket.cost()));
+                                System.out.println("Su compra : " + paquete.descripcion());
+                                System.out.println("Total : " + Double.toString(paquete.precio()));
                                 System.out.println("=====================");
                         }
                         break;
@@ -129,15 +240,49 @@ public class run {
                         switch (selection) {
                             case 1:
                                 newTiket2 = new Membership(newTiket2);
+                                System.out.println("A continuación se le presentas las opciones de comida");
+                                System.out.println("(1) - Almuerzo");
+                                System.out.println("(2) - Cena");
+                                System.out.println("(3) - Sin comida");
+                                selection = scanner.nextInt();
+                                switch(selection){
+                                    case 1:
+                                        paquete.add(new Hoja_Ticket(newTiket2));
+                                        paquete.add(almuerzo);
+                                        break;
+                                    case 2:
+                                        paquete.add(new Hoja_Ticket(newTiket2));
+                                        paquete.add(cena);
+                                        break;
+                                    default:
+                                        paquete.add(new Hoja_Ticket(newTiket2));
+                                }
                                 System.out.println("=====================");
-                                System.out.println("Su compra : " + newTiket2.getDescription());
-                                System.out.println("Total : " + Double.toString(newTiket2.cost()));
+                                System.out.println("Su compra : " + paquete.descripcion());
+                                System.out.println("Total : " + Double.toString(paquete.precio()));
                                 System.out.println("=====================");
                                 break;
                             default:
+                                System.out.println("A continuación se le presentas las opciones de comida");
+                                System.out.println("(1) - Almuerzo");
+                                System.out.println("(2) - Cena");
+                                System.out.println("(3) - Sin comida");
+                                selection = scanner.nextInt();
+                                switch(selection){
+                                    case 1:
+                                        paquete.add(new Hoja_Ticket(newTiket2));
+                                        paquete.add(almuerzo);
+                                        break;
+                                    case 2:
+                                        paquete.add(new Hoja_Ticket(newTiket2));
+                                        paquete.add(cena);
+                                        break;
+                                    default:
+                                        paquete.add(new Hoja_Ticket(newTiket2));
+                                }
                                 System.out.println("=====================");
-                                System.out.println("Su compra : " + newTiket2.getDescription());
-                                System.out.println("Su compra : " + Double.toString(newTiket2.cost()));
+                                System.out.println("Su compra : " + paquete.descripcion());
+                                System.out.println("Total : " + Double.toString(paquete.precio()));
                                 System.out.println("=====================");
                         }
                         
@@ -151,15 +296,49 @@ public class run {
                         switch (selection) {
                             case 1:
                                 newTiket2 = new Membership(newTiket2);
+                                System.out.println("A continuación se le presentas las opciones de comida");
+                                System.out.println("(1) - Almuerzo");
+                                System.out.println("(2) - Cena");
+                                System.out.println("(3) - Sin comida");
+                                selection = scanner.nextInt();
+                                switch(selection){
+                                    case 1:
+                                        paquete.add(new Hoja_Ticket(newTiket2));
+                                        paquete.add(almuerzo);
+                                        break;
+                                    case 2:
+                                        paquete.add(new Hoja_Ticket(newTiket2));
+                                        paquete.add(cena);
+                                        break;
+                                    default:
+                                        paquete.add(new Hoja_Ticket(newTiket2));
+                                }
                                 System.out.println("=====================");
-                                System.out.println("Su compra : " + newTiket2.getDescription());
-                                System.out.println("Total : " + Double.toString(newTiket2.cost()));
+                                System.out.println("Su compra : " + paquete.descripcion());
+                                System.out.println("Total : " + Double.toString(paquete.precio()));
                                 System.out.println("=====================");
                                 break;
                             default:
+                                System.out.println("A continuación se le presentas las opciones de comida");
+                                System.out.println("(1) - Almuerzo");
+                                System.out.println("(2) - Cena");
+                                System.out.println("(3) - Sin comida");
+                                selection = scanner.nextInt();
+                                switch(selection){
+                                    case 1:
+                                        paquete.add(new Hoja_Ticket(newTiket2));
+                                        paquete.add(almuerzo);
+                                        break;
+                                    case 2:
+                                        paquete.add(new Hoja_Ticket(newTiket2));
+                                        paquete.add(cena);
+                                        break;
+                                    default:
+                                        paquete.add(new Hoja_Ticket(newTiket2));
+                                }
                                 System.out.println("=====================");
-                                System.out.println("Su compra : " + newTiket2.getDescription());
-                                System.out.println("Su compra : " + Double.toString(newTiket2.cost()));
+                                System.out.println("Su compra : " + paquete.descripcion());
+                                System.out.println("Total : " + Double.toString(paquete.precio()));
                                 System.out.println("=====================");
                         }
                         break;
@@ -172,15 +351,49 @@ public class run {
                         switch (selection) {
                             case 1:
                                 newTiket2 = new Membership(newTiket2);
+                                System.out.println("A continuación se le presentas las opciones de comida");
+                                System.out.println("(1) - Almuerzo");
+                                System.out.println("(2) - Cena");
+                                System.out.println("(3) - Sin comida");
+                                selection = scanner.nextInt();
+                                switch(selection){
+                                    case 1:
+                                        paquete.add(new Hoja_Ticket(newTiket2));
+                                        paquete.add(almuerzo);
+                                        break;
+                                    case 2:
+                                        paquete.add(new Hoja_Ticket(newTiket2));
+                                        paquete.add(cena);
+                                        break;
+                                    default:
+                                        paquete.add(new Hoja_Ticket(newTiket2));
+                                }
                                 System.out.println("=====================");
-                                System.out.println("Su compra : " + newTiket2.getDescription());
-                                System.out.println("Total : " + Double.toString(newTiket2.cost()));
+                                System.out.println("Su compra : " + paquete.descripcion());
+                                System.out.println("Total : " + Double.toString(paquete.precio()));
                                 System.out.println("=====================");
                                 break;
                             default:
+                                System.out.println("A continuación se le presentas las opciones de comida");
+                                System.out.println("(1) - Almuerzo");
+                                System.out.println("(2) - Cena");
+                                System.out.println("(3) - Sin comida");
+                                selection = scanner.nextInt();
+                                switch(selection){
+                                    case 1:
+                                        paquete.add(new Hoja_Ticket(newTiket2));
+                                        paquete.add(almuerzo);
+                                        break;
+                                    case 2:
+                                        paquete.add(new Hoja_Ticket(newTiket2));
+                                        paquete.add(cena);
+                                        break;
+                                    default:
+                                        paquete.add(new Hoja_Ticket(newTiket2));
+                                }
                                 System.out.println("=====================");
-                                System.out.println("Su compra : " + newTiket2.getDescription());
-                                System.out.println("Su compra : " + Double.toString(newTiket2.cost()));
+                                System.out.println("Su compra : " + paquete.descripcion());
+                                System.out.println("Total : " + Double.toString(paquete.precio()));
                                 System.out.println("=====================");
                         }
                         break;
@@ -204,15 +417,49 @@ public class run {
                         switch (selection) {
                             case 1:
                                 newTiket3 = new Membership(newTiket3);
+                                System.out.println("A continuación se le presentas las opciones de comida");
+                                System.out.println("(1) - Almuerzo");
+                                System.out.println("(2) - Cena");
+                                System.out.println("(3) - Sin comida");
+                                selection = scanner.nextInt();
+                                switch(selection){
+                                    case 1:
+                                        paquete.add(new Hoja_Ticket(newTiket3));
+                                        paquete.add(almuerzo);
+                                        break;
+                                    case 2:
+                                        paquete.add(new Hoja_Ticket(newTiket3));
+                                        paquete.add(cena);
+                                        break;
+                                    default:
+                                        paquete.add(new Hoja_Ticket(newTiket3));
+                                }
                                 System.out.println("=====================");
-                                System.out.println("Su compra : " + newTiket3.getDescription());
-                                System.out.println("Total : " + Double.toString(newTiket3.cost()));
+                                System.out.println("Su compra : " + paquete.descripcion());
+                                System.out.println("Total : " + Double.toString(paquete.precio()));
                                 System.out.println("=====================");
                                 break;
                             default:
+                                System.out.println("A continuación se le presentas las opciones de comida");
+                                System.out.println("(1) - Almuerzo");
+                                System.out.println("(2) - Cena");
+                                System.out.println("(3) - Sin comida");
+                                selection = scanner.nextInt();
+                                switch(selection){
+                                    case 1:
+                                        paquete.add(new Hoja_Ticket(newTiket3));
+                                        paquete.add(almuerzo);
+                                        break;
+                                    case 2:
+                                        paquete.add(new Hoja_Ticket(newTiket3));
+                                        paquete.add(cena);
+                                        break;
+                                    default:
+                                        paquete.add(new Hoja_Ticket(newTiket3));
+                                }
                                 System.out.println("=====================");
-                                System.out.println("Su compra : " + newTiket3.getDescription());
-                                System.out.println("Su compra : " + Double.toString(newTiket3.cost()));
+                                System.out.println("Su compra : " + paquete.descripcion());
+                                System.out.println("Total : " + Double.toString(paquete.precio()));
                                 System.out.println("=====================");
                         }
                         break;
@@ -225,15 +472,49 @@ public class run {
                         switch (selection) {
                             case 1:
                                 newTiket3 = new Membership(newTiket3);
+                                System.out.println("A continuación se le presentas las opciones de comida");
+                                System.out.println("(1) - Almuerzo");
+                                System.out.println("(2) - Cena");
+                                System.out.println("(3) - Sin comida");
+                                selection = scanner.nextInt();
+                                switch(selection){
+                                    case 1:
+                                        paquete.add(new Hoja_Ticket(newTiket3));
+                                        paquete.add(almuerzo);
+                                        break;
+                                    case 2:
+                                        paquete.add(new Hoja_Ticket(newTiket3));
+                                        paquete.add(cena);
+                                        break;
+                                    default:
+                                        paquete.add(new Hoja_Ticket(newTiket3));
+                                }
                                 System.out.println("=====================");
-                                System.out.println("Su compra : " + newTiket3.getDescription());
-                                System.out.println("Total : " + Double.toString(newTiket3.cost()));
+                                System.out.println("Su compra : " + paquete.descripcion());
+                                System.out.println("Total : " + Double.toString(paquete.precio()));
                                 System.out.println("=====================");
                                 break;
                             default:
+                                System.out.println("A continuación se le presentas las opciones de comida");
+                                System.out.println("(1) - Almuerzo");
+                                System.out.println("(2) - Cena");
+                                System.out.println("(3) - Sin comida");
+                                selection = scanner.nextInt();
+                                switch(selection){
+                                    case 1:
+                                        paquete.add(new Hoja_Ticket(newTiket3));
+                                        paquete.add(almuerzo);
+                                        break;
+                                    case 2:
+                                        paquete.add(new Hoja_Ticket(newTiket3));
+                                        paquete.add(cena);
+                                        break;
+                                    default:
+                                        paquete.add(new Hoja_Ticket(newTiket3));
+                                }
                                 System.out.println("=====================");
-                                System.out.println("Su compra : " + newTiket3.getDescription());
-                                System.out.println("Su compra : " + Double.toString(newTiket3.cost()));
+                                System.out.println("Su compra : " + paquete.descripcion());
+                                System.out.println("Total : " + Double.toString(paquete.precio()));
                                 System.out.println("=====================");
                         }
                         break;
@@ -246,15 +527,49 @@ public class run {
                         switch (selection) {
                             case 1:
                                 newTiket3 = new Membership(newTiket3);
+                                System.out.println("A continuación se le presentas las opciones de comida");
+                                System.out.println("(1) - Almuerzo");
+                                System.out.println("(2) - Cena");
+                                System.out.println("(3) - Sin comida");
+                                selection = scanner.nextInt();
+                                switch(selection){
+                                    case 1:
+                                        paquete.add(new Hoja_Ticket(newTiket3));
+                                        paquete.add(almuerzo);
+                                        break;
+                                    case 2:
+                                        paquete.add(new Hoja_Ticket(newTiket3));
+                                        paquete.add(cena);
+                                        break;
+                                    default:
+                                        paquete.add(new Hoja_Ticket(newTiket3));
+                                }
                                 System.out.println("=====================");
-                                System.out.println("Su compra : " + newTiket3.getDescription());
-                                System.out.println("Total : " + Double.toString(newTiket3.cost()));
+                                System.out.println("Su compra : " + paquete.descripcion());
+                                System.out.println("Total : " + Double.toString(paquete.precio()));
                                 System.out.println("=====================");
                                 break;
                             default:
+                                System.out.println("A continuación se le presentas las opciones de comida");
+                                System.out.println("(1) - Almuerzo");
+                                System.out.println("(2) - Cena");
+                                System.out.println("(3) - Sin comida");
+                                selection = scanner.nextInt();
+                                switch(selection){
+                                    case 1:
+                                        paquete.add(new Hoja_Ticket(newTiket3));
+                                        paquete.add(almuerzo);
+                                        break;
+                                    case 2:
+                                        paquete.add(new Hoja_Ticket(newTiket3));
+                                        paquete.add(cena);
+                                        break;
+                                    default:
+                                        paquete.add(new Hoja_Ticket(newTiket3));
+                                }
                                 System.out.println("=====================");
-                                System.out.println("Su compra : " + newTiket3.getDescription());
-                                System.out.println("Su compra : " + Double.toString(newTiket3.cost()));
+                                System.out.println("Su compra : " + paquete.descripcion());
+                                System.out.println("Total : " + Double.toString(paquete.precio()));
                                 System.out.println("=====================");
                         }
                         break;
@@ -278,15 +593,49 @@ public class run {
                         switch (selection) {
                             case 1:
                                 newTiket4 = new Membership(newTiket4);
+                                System.out.println("A continuación se le presentas las opciones de comida");
+                                System.out.println("(1) - Almuerzo");
+                                System.out.println("(2) - Cena");
+                                System.out.println("(3) - Sin comida");
+                                selection = scanner.nextInt();
+                                switch(selection){
+                                    case 1:
+                                        paquete.add(new Hoja_Ticket(newTiket4));
+                                        paquete.add(almuerzo);
+                                        break;
+                                    case 2:
+                                        paquete.add(new Hoja_Ticket(newTiket4));
+                                        paquete.add(cena);
+                                        break;
+                                    default:
+                                        paquete.add(new Hoja_Ticket(newTiket4));
+                                }
                                 System.out.println("=====================");
-                                System.out.println("Su compra : " + newTiket4.getDescription());
-                                System.out.println("Total : " + Double.toString(newTiket4.cost()));
+                                System.out.println("Su compra : " + paquete.descripcion());
+                                System.out.println("Total : " + Double.toString(paquete.precio()));
                                 System.out.println("=====================");
                                 break;
                             default:
+                                System.out.println("A continuación se le presentas las opciones de comida");
+                                System.out.println("(1) - Almuerzo");
+                                System.out.println("(2) - Cena");
+                                System.out.println("(3) - Sin comida");
+                                selection = scanner.nextInt();
+                                switch(selection){
+                                    case 1:
+                                        paquete.add(new Hoja_Ticket(newTiket4));
+                                        paquete.add(almuerzo);
+                                        break;
+                                    case 2:
+                                        paquete.add(new Hoja_Ticket(newTiket4));
+                                        paquete.add(cena);
+                                        break;
+                                    default:
+                                        paquete.add(new Hoja_Ticket(newTiket4));
+                                }
                                 System.out.println("=====================");
-                                System.out.println("Su compra : " + newTiket4.getDescription());
-                                System.out.println("Su compra : " + Double.toString(newTiket4.cost()));
+                                System.out.println("Su compra : " + paquete.descripcion());
+                                System.out.println("Total : " + Double.toString(paquete.precio()));
                                 System.out.println("=====================");
                         }
                         break;
@@ -299,15 +648,49 @@ public class run {
                         switch (selection) {
                             case 1:
                                 newTiket4 = new Membership(newTiket4);
+                                System.out.println("A continuación se le presentas las opciones de comida");
+                                System.out.println("(1) - Almuerzo");
+                                System.out.println("(2) - Cena");
+                                System.out.println("(3) - Sin comida");
+                                selection = scanner.nextInt();
+                                switch(selection){
+                                    case 1:
+                                        paquete.add(new Hoja_Ticket(newTiket4));
+                                        paquete.add(almuerzo);
+                                        break;
+                                    case 2:
+                                        paquete.add(new Hoja_Ticket(newTiket4));
+                                        paquete.add(cena);
+                                        break;
+                                    default:
+                                        paquete.add(new Hoja_Ticket(newTiket4));
+                                }
                                 System.out.println("=====================");
-                                System.out.println("Su compra : " + newTiket4.getDescription());
-                                System.out.println("Total : " + Double.toString(newTiket4.cost()));
+                                System.out.println("Su compra : " + paquete.descripcion());
+                                System.out.println("Total : " + Double.toString(paquete.precio()));
                                 System.out.println("=====================");
                                 break;
                             default:
+                                System.out.println("A continuación se le presentas las opciones de comida");
+                                System.out.println("(1) - Almuerzo");
+                                System.out.println("(2) - Cena");
+                                System.out.println("(3) - Sin comida");
+                                selection = scanner.nextInt();
+                                switch(selection){
+                                    case 1:
+                                        paquete.add(new Hoja_Ticket(newTiket4));
+                                        paquete.add(almuerzo);
+                                        break;
+                                    case 2:
+                                        paquete.add(new Hoja_Ticket(newTiket4));
+                                        paquete.add(cena);
+                                        break;
+                                    default:
+                                        paquete.add(new Hoja_Ticket(newTiket4));
+                                }
                                 System.out.println("=====================");
-                                System.out.println("Su compra : " + newTiket4.getDescription());
-                                System.out.println("Su compra : " + Double.toString(newTiket4.cost()));
+                                System.out.println("Su compra : " + paquete.descripcion());
+                                System.out.println("Total : " + Double.toString(paquete.precio()));
                                 System.out.println("=====================");
                         }
                         break;
@@ -320,15 +703,49 @@ public class run {
                         switch (selection) {
                             case 1:
                                 newTiket4 = new Membership(newTiket4);
+                                System.out.println("A continuación se le presentas las opciones de comida");
+                                System.out.println("(1) - Almuerzo");
+                                System.out.println("(2) - Cena");
+                                System.out.println("(3) - Sin comida");
+                                selection = scanner.nextInt();
+                                switch(selection){
+                                    case 1:
+                                        paquete.add(new Hoja_Ticket(newTiket4));
+                                        paquete.add(almuerzo);
+                                        break;
+                                    case 2:
+                                        paquete.add(new Hoja_Ticket(newTiket4));
+                                        paquete.add(cena);
+                                        break;
+                                    default:
+                                        paquete.add(new Hoja_Ticket(newTiket4));
+                                }
                                 System.out.println("=====================");
-                                System.out.println("Su compra : " + newTiket4.getDescription());
-                                System.out.println("Total : " + Double.toString(newTiket4.cost()));
+                                System.out.println("Su compra : " + paquete.descripcion());
+                                System.out.println("Total : " + Double.toString(paquete.precio()));
                                 System.out.println("=====================");
                                 break;
                             default:
+                                System.out.println("A continuación se le presentas las opciones de comida");
+                                System.out.println("(1) - Almuerzo");
+                                System.out.println("(2) - Cena");
+                                System.out.println("(3) - Sin comida");
+                                selection = scanner.nextInt();
+                                switch(selection){
+                                    case 1:
+                                        paquete.add(new Hoja_Ticket(newTiket4));
+                                        paquete.add(almuerzo);
+                                        break;
+                                    case 2:
+                                        paquete.add(new Hoja_Ticket(newTiket4));
+                                        paquete.add(cena);
+                                        break;
+                                    default:
+                                        paquete.add(new Hoja_Ticket(newTiket4));
+                                }
                                 System.out.println("=====================");
-                                System.out.println("Su compra : " + newTiket4.getDescription());
-                                System.out.println("Su compra : " + Double.toString(newTiket4.cost()));
+                                System.out.println("Su compra : " + paquete.descripcion());
+                                System.out.println("Total : " + Double.toString(paquete.precio()));
                                 System.out.println("=====================");
                         }
                         break;
