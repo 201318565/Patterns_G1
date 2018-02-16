@@ -14,11 +14,11 @@ public class run {
     static Paquete_Composite paquete = new Paquete_Composite();
     static Hoja_Almuerzo almuerzo = new Hoja_Almuerzo();
     static Hoja_Cena cena = new Hoja_Cena();
-    static Context context = new Context(); // CONTEXTO DE LA VENTANILLA
+    //static Context context = new Context(); // CONTEXTO DE LA VENTANILLA
 
     public static void main(String[] args) {
         StartState startState = new StartState();
-        startState.doAction(context);
+        startState.doAction(Context.getSingleton());
         System.out.println("Bienvenido a la estación de transportes");
         Scanner scanner = new Scanner(System.in);
         while (true) {
@@ -29,12 +29,12 @@ public class run {
             System.out.print("Ingrese su elección:\t");
             int selection = scanner.nextInt();
             if (selection == 1) {
-                 if("Trabajando".equals(context.getState().toString())){
+                 if("Trabajando".equals(Context.getSingleton().getState().toString())){
                     paquete = new Paquete_Composite();
                     menuTickets();
-                 } else if ("Cerrada".equals(context.getState().toString())){
+                 } else if ("Cerrada".equals(Context.getSingleton().getState().toString())){
                       System.out.print("Lo sentimos la ventanilla ya fue cerrada\n\n");
-                 } else if ("Suspendida".equals(context.getState().toString())){
+                 } else if ("Suspendida".equals(Context.getSingleton().getState().toString())){
                      System.out.print("Vuelva en 5 min la ventanilla no esta atendiendo en este momento \n\n");
                  }
                 
@@ -783,16 +783,16 @@ public class run {
         switch (selection) {
             case 1:
                 StartState startState = new StartState();
-                startState.doAction(context);
+                startState.doAction(Context.getSingleton());
                 break;
             case 2:
                 StopState stopState = new StopState();
-                stopState.doAction(context);
+                stopState.doAction(Context.getSingleton());
                 break;
 
             case 3:
                 SuspendState supendState = new SuspendState();
-                supendState.doAction(context);
+                supendState.doAction(Context.getSingleton());
                 break;
             default:
 

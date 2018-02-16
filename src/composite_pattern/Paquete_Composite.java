@@ -13,6 +13,7 @@ import java.util.List;
  * @author Adrian
  */
 public class Paquete_Composite implements Ticket_Componente{
+
     //lista para hacer el paquete
     private List<Ticket_Componente> lista = new ArrayList();
     
