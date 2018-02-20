@@ -3,10 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Grosales/Documents/Patterns_G1/src/patterns_g1/run.java</file>
-            <file>file:/C:/Users/Grosales/Documents/Patterns_G1/src/state_pattern/StopState.java</file>
-            <file>file:/C:/Users/Grosales/Documents/Patterns_G1/src/state_pattern/StartState.java</file>
-            <file>file:/C:/Users/Grosales/Documents/Patterns_G1/src/state_pattern/SuspendState.java</file>
+            <file>file:/C:/Users/Grosales/Documents/Patterns_G1/src/decorator_pattern/extras/Extras_Decorator.java</file>
+            <file>file:/C:/Users/Grosales/Documents/Patterns_G1/src/state_pattern/Context.java</file>
+            <file>file:/C:/Users/Grosales/Documents/Patterns_G1/src/decorator_pattern/ticket_class/Tickets.java</file>
+            <file>file:/C:/Users/Grosales/Documents/Patterns_G1/src/decorator_pattern/ticket_class/SC1.java</file>
+            <file>file:/C:/Users/Grosales/Documents/Patterns_G1/src/decorator_pattern/extras/Membership.java</file>
         </group>
     </open-files>
 </project-private>
